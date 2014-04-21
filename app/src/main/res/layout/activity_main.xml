@@ -1,0 +1,140 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.test.apprest.app.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/idcliente" />
+
+        <EditText
+            android:id="@+id/txtId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" >
+
+            <requestFocus />
+
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre" />
+
+        <EditText
+            android:id="@+id/txtNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="text" >
+
+            <requestFocus />
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/buttonBarStyle" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/telefono" />
+
+        <EditText
+            android:id="@+id/txtTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            style="?android:attr/buttonBarButtonStyle" >
+
+            <requestFocus />
+
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/buttonBarStyle">
+
+        <Button
+            android:id="@+id/btnInsertar"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ins"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/btnActualizar"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/act"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:text="Eli"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/btnObtener"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/obt"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/btnListar"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/lis"
+            style="?android:attr/buttonBarButtonStyle" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <ListView
+        android:id="@+id/lstClientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>
