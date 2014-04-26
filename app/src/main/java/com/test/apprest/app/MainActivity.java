@@ -1,5 +1,6 @@
 package com.test.apprest.app;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -100,13 +101,17 @@ public class MainActivity extends ActionBarActivity {
 
         btnListar.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
-                TareaWSListar tarea = new TareaWSListar();
-                tarea.execute();
+            public void onClick(View v){
+                mostrarListado();
             }
         });
-    }
 
+
+    }
+    public void mostrarListado(){
+        Intent i = new Intent(this, Lista.class);
+        startActivity(i);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -270,45 +275,4 @@ public class MainActivity extends ActionBarActivity {
         }
 
     }
-
-    //Clase para obtener el listado
-    private class TareaWSListar extends AsyncTask<String,Integer,Boolean> {
-        private String[] clientes;
-        protected Boolean doInBackground(String... params) {
-            boolean resul = true;
-            HttpClient httpClient = new DefaultHttpClient();
-            HttpGet del = new HttpGet("http://10.0.2.2/WebServiceRestAndroid/Clientes/clientes");
-            del.setHeader("content-type", "application/json");
-            try
-            {
-                HttpResponse resp = httpClient.execute(del);
-                String respStr = EntityUtils.toString(resp.getEntity());
-                JSONArray respJSON = new JSONArray(respStr);
-                clientes = new String[respJSON.length()];
-                for(int i=0; i<respJSON.length(); i++)
-                {
-                    JSONObject obj = respJSON.getJSONObject(i);
-                    int idCli = obj.getInt("Id");
-                    String nombCli = obj.getString("Nombre");
-                    int telefCli = obj.getInt("Telefono");
-                    clientes[i] = "" + idCli + "-" + nombCli + "-" + telefCli;
-                }
-            }
-            catch(Exception ex)
-            {
-                Log.e("ServicioRest","Error!", ex);
-                resul = false;
-            }
-            return resul;
-        }
-
-        protected void onPostExecute(Boolean result) {
-            if (result)
-            {
-                ArrayAdapter<String> adaptador = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, clientes);
-                lstClientes.setAdapter(adaptador);
-            }
-        }
-    }
-
 }

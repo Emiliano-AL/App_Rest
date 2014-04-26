@@ -11,5 +11,6 @@
     <string name="act">Act</string>
     <string name="obt">Obt</string>
     <string name="lis">Lis</string>
+    <string name="title_activity_lista">Lista</string><string name="tituloListado">Listado de usuarios</string>
 
 </resources>
